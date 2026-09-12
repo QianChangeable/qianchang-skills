@@ -1,6 +1,6 @@
 ---
 name: writing-skills
-description: Use when creating new skills, editing existing skills, verifying skills work before deployment, writing SKILL.md, or authoring Cursor agent skills
+description: Use when creating a new Cursor skill; when editing, modifying, updating, tweaking, or patching an existing skill or SKILL.md; when the user says 修改skill, 改skill, skill中修改, 更新技能, or asks to add a step to a named skill; when authoring or verifying skills before deployment; or when Cursor create-skill also applies
 ---
 
 # Writing Skills
@@ -8,6 +8,18 @@ description: Use when creating new skills, editing existing skills, verifying sk
 ## Overview
 
 **Writing skills IS Test-Driven Development applied to process documentation.**
+
+## First action (create or edit)
+
+Observable: this turn creates a skill, or edits, modifies, patches, or adds a step to one (including 修改skill, 改skill, skill中修改, 更新技能, 改 SKILL.md). Naming a specific skill does not change this.
+
+Do this, in order:
+
+1. Read **this file in full** (`~/.cursor/skills/writing-skills/SKILL.md`). No line limit. A 40-line peek does not count.
+2. Follow the checklist here. The named skill is the artifact; this file is the process.
+3. Only then Read or Edit the target `SKILL.md`.
+
+Cursor built-in `create-skill` does not replace this.
 
 ## Cursor runtime (this install)
 
@@ -394,11 +406,13 @@ This applies to NEW skills AND EDITS to existing skills.
 
 Write skill before testing? Delete it. Start over.
 Edit skill without testing? Same violation.
+Skip this file and patch the named skill first? Same violation. Undo the patch. Start with this file.
 
 **No exceptions:**
 - Not for "simple additions"
 - Not for "just adding a section"
 - Not for "documentation updates"
+- Not for "skill中修改一下" / "只加一步"
 - Don't keep untested changes as "reference"
 - Don't "adapt" while running tests
 - Delete means delete
@@ -468,6 +482,26 @@ Different skill types need different test approaches:
 | "No time to test" | Deploying untested skill wastes more time fixing it later. |
 
 **All of these mean: Test before deploying. No exceptions.**
+
+## Common Rationalizations for Skipping This Skill on Edits
+
+| Excuse | Reality |
+|--------|---------|
+| "User named a specific skill, so I edit that" | Named skill is the artifact. Process is this file. |
+| "Just adding one step / skill中修改一下" | Iron Law covers edits. Same as a new skill. |
+| "I already know writing-skills" | Read this file this turn. Memory is not compliance. |
+| "Peeked at the first 40 lines" | Full file. Partial Read does not count. |
+| "create-skill is enough" | This skill's constraints win. Cursor paths, this checklist. |
+| "Don't overthink, user is impatient" | First action is still this file. Then the smallest edit. |
+
+## Red Flags - STOP and Start Over
+
+- First tool call is the target `SKILL.md` or site config
+- `Read` of this file with a line `limit`
+- `create-skill` used instead of this file
+- "I already know this" / "just a one-line tweak"
+
+**All of these mean: Stop editing the target. Read this file in full. Follow the checklist.**
 
 ## Match the Form to the Failure
 

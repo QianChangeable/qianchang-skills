@@ -1,0 +1,15 @@
+---
+description: Before creating or editing any skill, read and follow writing-skills
+alwaysApply: true
+---
+
+# Require writing-skills
+
+When this turn creates, edits, modifies, updates, patches, or adds a step to a skill (including 创建/修改/改 skill、skill中修改、更新技能、改 SKILL.md), even if a specific skill is named:
+
+1. First tool call: Read `~/.cursor/skills/writing-skills/SKILL.md` **in full** (no line limit). A partial read does not count.
+2. Follow that skill for the rest of the task, including "just add one step" edits.
+3. Do not start by editing the target `SKILL.md`.
+4. Cursor built-in `create-skill` does not replace this. If both apply, writing-skills wins.
+
+This rule is only the load trigger. The process lives in writing-skills.
