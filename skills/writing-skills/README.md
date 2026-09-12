@@ -15,8 +15,15 @@
 | 部署 | 写到上面两个目录即部署，不要求推 Superpowers fork |
 | 压测 | 用 Cursor subagent；不依赖 Superpowers TDD skill / harness |
 | 与内置 skill 的关系 | 若 Cursor 自带 `create-skill` 同时命中，写约束以本 skill 为准，路径用 Cursor 路径 |
+| 修改时强制加载 | 用户级规则 `~/.cursor/rules/require-writing-skills.mdc`（alwaysApply）。仅靠 description 不够：点名改某个 skill 时 agent 会直接改目标文件 |
 
 Claude Code 默认路径是 `~/.claude/skills/`。本 skill 已写明：**不要用 Claude Code 路径，除非那台机器上真的有这个目录。**
+
+## 修改 skill 时为何还要一条规则
+
+`description` 只参与「要不要读这份 skill」的匹配。用户说「skill中修改一下」并点名已有 skill 时，目标 skill 更抢注意力，agent 会直接改那个 `SKILL.md`，或只 peek 本文件前 40 行。
+
+把 [require-writing-skills.mdc](require-writing-skills.mdc) 拷到 `~/.cursor/rules/`（`alwaysApply: true`）。所有项目（含 Hexo）都会先读本 skill。项目级 `.cursor/rules/` 只在本仓库生效，不够。
 
 ## 其他 agent 不能直接用的原因
 
@@ -50,6 +57,7 @@ Claude Code 默认路径是 `~/.claude/skills/`。本 skill 已写明：**不要
 | 文件 | 作用 |
 |------|------|
 | [SKILL.md](SKILL.md) | 主指令（Cursor 运行时） |
+| [require-writing-skills.mdc](require-writing-skills.mdc) | 用户级 alwaysApply 规则：创建/修改 skill 时必须先读本 SKILL.md |
 | [testing-skills-with-subagents.md](testing-skills-with-subagents.md) | 用 agent 压测 skill |
 | [anthropic-best-practices.md](anthropic-best-practices.md) | Anthropic 官方写作建议 |
 | [persuasion-principles.md](persuasion-principles.md) | 纪律类 skill 的措辞原则 |
