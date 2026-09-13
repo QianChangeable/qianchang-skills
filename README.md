@@ -10,11 +10,15 @@ My skill repository.
 
 ## Rules
 
-复制到 `~/.cursor/rules/`，并保持 `alwaysApply: true`。
+复制到 `~/.cursor/rules/`，并保持 `alwaysApply: true`。两份都要拷：
+
+- `rules/unslop.mdc`
+- `skills/writing-skills/require-writing-skills.mdc`（源文件跟 skill 走，不在 `rules/`）
 
 | Rule | 用途 |
 |------|------|
 | [unslop](rules/unslop.mdc) | 用户可见回复用字面陈述：说机制、文件或数字；没查过就说没查；不写比喻和套话 |
+| [require-writing-skills](skills/writing-skills/require-writing-skills.mdc) | 创建或修改任何 skill 时，先完整读取并遵循 `writing-skills`；仅靠 skill 的 description 不够 |
 
 ## 提交规范
 
