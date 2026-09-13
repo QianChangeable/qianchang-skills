@@ -8,6 +8,14 @@ My skill repository.
 | [writing-skills](skills/writing-skills/README.md) | 创建、编辑、验证 Cursor Agent Skill（**仅 Cursor**；修改时靠用户级规则强制加载，见该 README） |
 | [writing-conventional-commits](skills/writing-conventional-commits/README.md) | 按 Conventional Commits 写 git commit，确认后再提交 |
 
+## Rules
+
+复制到 `~/.cursor/rules/`，并保持 `alwaysApply: true`。
+
+| Rule | 用途 |
+|------|------|
+| [unslop](rules/unslop.mdc) | 用户可见回复用字面陈述：说机制、文件或数字；没查过就说没查；不写比喻和套话 |
+
 ## 提交规范
 
 本仓库使用 [Conventional Commits](https://www.conventionalcommits.org/)：
